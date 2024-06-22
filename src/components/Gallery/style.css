@@ -1,0 +1,11 @@
+.Page {
+  border: 1px solid;
+  margin: 20px;
+  padding-left: 50px;
+  display: flex;
+}
+
+button {
+  display: block;
+  margin: 10px;
+}

@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+import Todo from "./components/todo/index";
+import Counter from "./components/counter";
+import Gallery from "./components/Gallery/index";
+
+const myTodoItems = [
+  {
+    id: 1,
+    title: "hello ji",
+  },
+  {
+    id: 2,
+    title: "hello ji2",
+  },
+  {
+    id: 3,
+    title: "hello ji3",
+  },
+  {
+    id: 4,
+    title: "hello ji4",
+  },
+  {
+    id: 5,
+    title: "hello ji5",
+  },
+];
+
+const App: React.FC = () => {
+  const [state, setState] = useState<boolean>(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Todo items={myTodoItems} />
+      <button onClick={(e) => setState(!state)}>Toggle</button>
+      {state ? <Counter /> : ""}
+      <div className="Page">
+        <Gallery />
+        <Gallery />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
